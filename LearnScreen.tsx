@@ -1,6 +1,6 @@
-import { ScrollView, Text } from "react-native";
-import Card from "../components/Card";
-import { Theme } from "../theme/theme";
+import { ScrollView } from "react-native";
+import LessonCard from "../components/LessonCard";
+import { lessons } from "../data/lessons";
 
 export default function LearnScreen(){
 
@@ -12,7 +12,7 @@ style={{
 
 flex:1,
 
-backgroundColor:Theme.colors.background,
+backgroundColor:"#121212",
 
 padding:20,
 
@@ -22,67 +22,19 @@ paddingTop:60
 
 >
 
-<Text
+{lessons.map((lesson)=>(
 
-style={{
+<LessonCard
 
-fontSize:34,
+key={lesson.id}
 
-fontWeight:"700",
+lesson={lesson}
 
-color:"white"
+onPress={()=>{}}
 
-}}
+/>
 
->
-
-Learn
-
-</Text>
-
-<Card>
-
-<Text style={{color:"white",fontSize:20,fontWeight:"700"}}>
-
-Beginner Course
-
-</Text>
-
-<Text style={{color:"#bbb",marginTop:10}}>
-
-• Budgeting Basics
-
-{"\n"}• Saving Money
-
-{"\n"}• Banking 101
-
-{"\n"}• Needs vs Wants
-
-</Text>
-
-</Card>
-
-<Card>
-
-<Text style={{color:"white",fontSize:20,fontWeight:"700"}}>
-
-Intermediate
-
-</Text>
-
-<Text style={{color:"#bbb",marginTop:10}}>
-
-• Credit Scores
-
-{"\n"}• Investing
-
-{"\n"}• Taxes
-
-{"\n"}• Insurance
-
-</Text>
-
-</Card>
+))}
 
 </ScrollView>
 
